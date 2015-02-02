@@ -76,7 +76,7 @@ body, input, button {
 }
 
 .problem-data {
-  margin:2rem;
+  margin:2rem 4rem;
 }
 
 .problem label, .problem input {
@@ -87,7 +87,7 @@ body, input, button {
   font-weight:bold;
   color:#fff;
   background-color:#f80;
-  padding:1rem 2rem;
+  padding:1rem 4rem;
 }
 
 button {
