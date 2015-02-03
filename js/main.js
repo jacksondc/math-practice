@@ -7,10 +7,8 @@ var ALL_ICON_CLASSES = 'hidden fa-check fa-times fa-exclamation-triangle';
 
 $(document).ready(function() {
   for(var i = 0; i < 15; i++) {
-    $('.problems').append(getProblemHTML(generateProblem()));
+    $('.problems').append(getProblemHTML(generateProblem(), i+1));
   }
-  updateIndices();
-
   $('.error').css('opacity', 0);
 
   $('body').on('click', '.submit', function() {
@@ -118,8 +116,6 @@ function makeSomethingWrong() {
           var problemHeight = parseInt($('.problem').outerHeight());
           $('.main').scrollTop( originalHeight + problemHeight + ADDED_HEIGHT);
         }
-
-        //updateIndices();
       } else { //change a problem
 
         //generate until we get a different one
@@ -153,17 +149,18 @@ function generateProblem() {
 
   var base = Math.floor(Math.random() * 6) + 2;
   var exponent = Math.floor(Math.random() * 3) + 1;
+  var exponentDisplay = Math.floor(Math.random() * 3) + 1;
   var total = Math.pow(base,exponent);
 
-  if(Math.random() < 0.5) {
+  if(Math.random() < 0.5 && exponent !== 2) {
     base = Math.pow(base, 2);
-    exponent = exponent + " / 2";
+    displayExponent = "( " + exponent + " / 2 )";
   }
 
   if(Math.random() < 0.25) {
-    return {problem: base + ' ^ ' + exponent, answer: total};
+    return {problem: base + ' ^ ' + displayExponent, answer: total};
   } else {
-    return {problem: 'log ' + base + ' of ' + total, answer: convertAnswer(exponent + "") };
+    return {problem: 'log ' + base + ' of ' + total, answer: exponent };
   }
 
 }
@@ -174,12 +171,6 @@ function getProblemHTML(problem, index) {
     + '"><div class="num">' + index + '</div><div class="problem-data"><span class="problem-text">' + problem.problem
     + '</span><input type="text" /><i class="hidden fa"></i>'
     + '<button class="submit-problem">Submit</button></div></div>';
-}
-
-function updateIndices() {
-  $('.problem').each(function(index) {
-    $(this).find('.num').text(index+1);
-  });
 }
 
 function log(x, y) {

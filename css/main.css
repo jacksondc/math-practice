@@ -76,7 +76,7 @@ body, input, button {
 }
 
 .problem-data {
-  margin:2rem 4rem;
+  margin:2rem 15%;
 }
 
 .problem label, .problem input {
@@ -86,8 +86,8 @@ body, input, button {
 .num {
   font-weight:bold;
   color:#fff;
-  background-color:#f80;
-  padding:1rem 4rem;
+  padding:1rem 15%;
+  background-color:#63A9B2;
 }
 
 button {
@@ -101,17 +101,15 @@ button, input {
 
 .submit {
   font-size:1.5rem;
-  background:#f80;
+  background:#63A9B2;
   color:#fff;
-  text-align:center;
   display:block;
-  margin:0 auto;
+  margin-left:15%;
   padding:0.25rem 1rem;
 }
 
 .problem {
   box-sizing:border-box;
-  position:relative;
 }
 
 input:focus, button:focus {
@@ -125,7 +123,7 @@ input.focus--mouse, button.focus--mouse {
 }
 
 .submit:focus {
-  background:#f80;
+  background:#63A9B2;
 }
 
 .submit {
