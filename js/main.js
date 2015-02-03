@@ -158,7 +158,7 @@ function generateProblem() {
   }
 
   if(Math.random() < 0.25) {
-    return {problem: base + ' ^ ' + displayExponent, answer: total};
+    return {problem: base + ' ^ ' + exponentDisplay, answer: total};
   } else {
     return {problem: 'log ' + base + ' of ' + total, answer: exponent };
   }
