@@ -146,23 +146,23 @@ function visible(element) {
 }
 
 function generateProblem() {
-
-  var base = Math.floor(Math.random() * 6) + 2;
+  var base = Math.floor(Math.random() * 4) + 2;
   var exponent = Math.floor(Math.random() * 3) + 1;
-  var exponentDisplay = Math.floor(Math.random() * 3) + 1;
-  var total = Math.pow(base,exponent);
+  var exponentDisplay = exponent;
 
   if(Math.random() < 0.5 && exponent !== 2) {
     base = Math.pow(base, 2);
-    displayExponent = "( " + exponent + " / 2 )";
+    exponentDisplay = "( " + exponent + " / 2 )";
+    exponent /= 2;
   }
+
+  var total = Math.pow(base,exponent);
 
   if(Math.random() < 0.25) {
     return {problem: base + ' ^ ' + exponentDisplay, answer: total};
   } else {
     return {problem: 'log ' + base + ' of ' + total, answer: exponent };
   }
-
 }
 
 function getProblemHTML(problem, index) {
